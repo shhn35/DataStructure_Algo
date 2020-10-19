@@ -17,7 +17,7 @@ public class MergeSort {
     }
 
     private int[] sort_implement_1(int[] arr) {
-        if (arr.length == 1)
+        if (arr.length <= 1)
             return arr;
         int breakPoint = arr.length / 2;
         int[] subArr_1 = new int[breakPoint];
@@ -26,15 +26,6 @@ public class MergeSort {
         System.arraycopy(arr, 0, subArr_1, 0, subArr_1.length);
         System.arraycopy(arr, breakPoint, subArr_2, 0, subArr_2.length);
 
-        if (subArr_1.length == 1 && subArr_2.length == 1) {
-            return mergeArrays.merge(subArr_1, subArr_2, 1);
-        } else if (subArr_1.length == 1 && subArr_2.length > 1) {
-            return mergeArrays.merge(sort_implement_1(subArr_2), subArr_1, 1);
-        } else if (subArr_1.length > 1 && subArr_2.length == 1) {
-            return mergeArrays.merge(sort_implement_1(subArr_1), subArr_2, 1);
-        }
-        else {
-            return mergeArrays.merge(sort_implement_1(subArr_1), sort_implement_1(subArr_2), 1);
-        }
+        return mergeArrays.merge(sort_implement_1(subArr_1), sort_implement_1(subArr_2), 1);
     }
 }
