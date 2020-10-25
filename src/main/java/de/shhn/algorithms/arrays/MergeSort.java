@@ -1,5 +1,7 @@
 package de.shhn.algorithms.arrays;
 
+import java.util.List;
+
 public class MergeSort {
     MergeToSortedArray mergeArrays ;
     public MergeSort()
@@ -10,13 +12,13 @@ public class MergeSort {
     public int[] sort(int[] arr,int implementationCode){
         switch (implementationCode){
             case 1:
-                return sort_implement_1(arr);
+                return sortArray(arr);
             default:
                 return new int[]{};
         }
     }
 
-    private int[] sort_implement_1(int[] arr) {
+    private int[] sortArray(int[] arr) {
         if (arr.length <= 1)
             return arr;
         int breakPoint = arr.length / 2;
@@ -26,6 +28,9 @@ public class MergeSort {
         System.arraycopy(arr, 0, subArr_1, 0, subArr_1.length);
         System.arraycopy(arr, breakPoint, subArr_2, 0, subArr_2.length);
 
-        return mergeArrays.merge(sort_implement_1(subArr_1), sort_implement_1(subArr_2), 1);
+        return mergeArrays.mergeArray(sortArray(subArr_1), sortArray(subArr_2));
     }
+
+
+
 }
