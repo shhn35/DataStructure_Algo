@@ -11,8 +11,6 @@ public class kthLargestElementSimpleImpl {
 
         int pivotInd = partition(arr,left,right);
 
-//        int pivotPos = arr.length - pivotInd - 1;
-
         int kthIndex = arr.length - k - 1;
 
         if(pivotInd < kthIndex)
